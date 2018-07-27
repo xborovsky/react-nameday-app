@@ -23,7 +23,7 @@ class SelectedDate extends Component {
 
         const {t} = this.props;
         getByDate(day, month).then(data =>this.setState({name : data['name_' + getLanguage()]}))
-            .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}}))
+            .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}, loading : false}))
     }
 
     componentDidMount() {
@@ -54,23 +54,21 @@ class SelectedDate extends Component {
         const {name, loading, error} = this.state;
 
         return (
-            <div className="ui text container">
+            <div className="ui container" style={{height : '90%', marginTop: '3em'}}>
                 {error ? <Error msg={error.msg} subMsg={error.description} /> :
-                    <div>
-                        <div className="ui hidden divider"></div>
-                        <div className="ui text container">
-                            <DateInput placeholder="Select date"
-                                    onChange={this.handleChange}
-                                    dateFormat='DD.MM.YYYY'
-                                    value={this.state.date}
-                                    closable={true}
-                                    initialDate={new Date()}/>
-                            { loading ?
-                                <Loader /> :
-                                <Name name={name}  />
-                            }
-                        </div>
-                    </div>
+                    <div style={{height : '100%'}}>
+                        <DateInput placeholder="Select date"
+                                onChange={this.handleChange}
+                                dateFormat='DD.MM.YYYY'
+                                value={this.state.date}
+                                closable={true}
+                                initialDate={new Date()}/>
+                                <div className="my-content">
+                        {loading ?
+                            <Loader /> :
+                            <Name name={name}  />
+                        }
+                    </div></div>
                 }
             </div>
         );

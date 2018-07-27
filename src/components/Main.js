@@ -4,7 +4,7 @@ import { getToday, getTomorrow, getYesterday } from '../api/api';
 import { getLanguage } from '../storage/language';
 import { withRouter } from 'react-router';
 import { DAYS } from '../constants/days';
-import { Loader } from '../../node_modules/semantic-ui-react';
+import Loader from './common/Loader';
 import Error from './common/Error';
 import { translate } from 'react-i18next';
 
@@ -43,13 +43,13 @@ class Main extends Component {
 
         const {t} = this.props;
         promise.then(data => this.setState({name : data['name_' + getLanguage()], loading : false, error : null}))
-            .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}}));
+            .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}, loading : false}));
     }
 
     render() {
         const { name, loading, error } = this.state;
         return (
-            <div className="ui text container">
+            <div className="ui container my-content">
                 {error ? <Error msg={error.msg} subMsg={error.description} /> :
                     loading ?
                         <Loader /> :
