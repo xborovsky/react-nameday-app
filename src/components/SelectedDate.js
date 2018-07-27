@@ -18,12 +18,17 @@ class SelectedDate extends Component {
         };
     }
 
-    componentDidMount() {
+    fetchData(day, month) {
         this.setState({loading: true});
-        const today = new Date();
+
         const {t} = this.props;
-        getByDate(today.getDate(), today.getMonth() + 1).then(data =>this.setState({name : data['name_' + getLanguage()]}))
+        getByDate(day, month).then(data =>this.setState({name : data['name_' + getLanguage()]}))
             .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}}))
+    }
+
+    componentDidMount() {
+        const today = new Date();
+        this.fetchData(today.getDate(), today.getMonth() + 1);
         this.setState({
             date : today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear(),
             loading : false
@@ -31,12 +36,8 @@ class SelectedDate extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        // TODO refaktor
-        this.setState({loading: true});
         const today = new Date();
-        const {t} = this.props;
-        getByDate(today.getDate(), today.getMonth() + 1).then(data =>this.setState({name : data['name_' + getLanguage()]}))
-            .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}}))
+        this.fetchData(today.getDate(), today.getMonth() + 1);
         this.setState({
             date : today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear(),
             loading : false
@@ -44,11 +45,8 @@ class SelectedDate extends Component {
     }
 
     handleChange = (e, {value}) => {
-        this.setState({loading: true});
         const dateSegments = value.split('.');
-        const {t} = this.props;
-        getByDate(dateSegments[0], dateSegments[1]).then(data =>this.setState({name : data['name_' + getLanguage()]}))
-            .catch(error => this.setState({error : {msg : t('error.messages.dataLoading'), description : error.message}}))
+        this.fetchData(dateSegments[0], dateSegments[1]);
         this.setState({ date: value, loading : false });
     };
 
