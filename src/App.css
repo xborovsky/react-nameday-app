@@ -17,6 +17,14 @@ body {
   font-weight: normal;
 }
 
+.masthead h1.ui.header.smaller {
+  font-size: 2em;
+}
+
+.masthead h1.ui.header.tiny {
+  font-size: 1em;
+}
+
 .icon.input {
   cursor: pointer !important;
 }
