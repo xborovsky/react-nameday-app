@@ -1,0 +1,31 @@
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.masthead.segment {
+  height: 100%;
+  padding: 1em 0em;
+}
+
+.masthead h1.ui.header {
+  margin-top: 3em;
+  margin-bottom: 0em;
+  font-size: 4em;
+  font-weight: normal;
+}
+
+.icon.input {
+  cursor: pointer !important;
+}
+
+.dropdown {
+  margin: 0 auto;
+}
+
+.negative.message {
+  margin-top: 3rem !important;
+}

@@ -1,0 +1,17 @@
+{
+    "menu" : {
+        "yesterday" : "Včera",
+        "today" : "Dnes",
+        "tomorrow" : "Zítra",
+        "findByDate" : "Podle data"
+    },
+    "language" : {
+        "text" : "Jazyk"
+    },
+    "error" : {
+        "general" : "Uuups, stalo se něco hrozného!",
+        "messages" : {
+            "dataLoading" : "Problém načítání dat!"
+        }
+    }
+}

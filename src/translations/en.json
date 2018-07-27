@@ -1,0 +1,17 @@
+{
+    "menu" : {
+        "yesterday" : "Yesterday",
+        "today" : "Today",
+        "tomorrow" : "Tomorrow",
+        "findByDate" : "Find by date"
+    },
+    "language" : {
+        "text" : "Language"
+    },
+    "error" : {
+        "general" : "Ooops, something bad just happened!",
+        "messages" : {
+            "dataLoading" : "Error loading data!"
+        }
+    }
+}
