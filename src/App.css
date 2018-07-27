@@ -12,6 +12,7 @@ body {
 }
 
 .masthead h1.ui.header {
+  margin-top: 3em;
   margin-bottom: 0em;
   font-size: 4em;
   font-weight: normal;
@@ -37,27 +38,16 @@ body {
   margin-top: 3rem !important;
 }
 
-.my-content {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  height: 100%;
-  position: relative;
-  flex-wrap: wrap;
-  height: 90%;
-}
-
-.segment.my-loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-  border: none;
-  background: none;
+.my-loader {
+  margin-top: 3em !important;
+  border: none !important;
+  background: none !important;
 }
 
 .my-loader>.dimmer {
   background: none;
+}
+
+.icon.input {
+  margin-top: 3em;
 }

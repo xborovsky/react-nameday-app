@@ -54,21 +54,20 @@ class SelectedDate extends Component {
         const {name, loading, error} = this.state;
 
         return (
-            <div className="ui container" style={{height : '90%', marginTop: '3em'}}>
+            <div className="ui container">
                 {error ? <Error msg={error.msg} subMsg={error.description} /> :
-                    <div style={{height : '100%'}}>
+                    <div>
                         <DateInput placeholder="Select date"
                                 onChange={this.handleChange}
                                 dateFormat='DD.MM.YYYY'
                                 value={this.state.date}
                                 closable={true}
                                 initialDate={new Date()}/>
-                                <div className="my-content">
                         {loading ?
                             <Loader /> :
                             <Name name={name}  />
                         }
-                    </div></div>
+                    </div>
                 }
             </div>
         );

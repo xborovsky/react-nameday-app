@@ -49,7 +49,7 @@ class Main extends Component {
     render() {
         const { name, loading, error } = this.state;
         return (
-            <div className="ui container my-content">
+            <div className="ui container">
                 {error ? <Error msg={error.msg} subMsg={error.description} /> :
                     loading ?
                         <Loader /> :
