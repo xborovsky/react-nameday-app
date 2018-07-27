@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.abalin.net/get';
+const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://api.abalin.net/get';
 
 export const getToday = () => {
     return axios.get(`${BASE_URL}/today`)
